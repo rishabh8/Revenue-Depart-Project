@@ -148,6 +148,19 @@ public partial class Dashboard : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Cells[0].Text = (++ind1).ToString();
+            DateTime dt = DateTime.Parse(e.Row.Cells[9].Text);
+            e.Row.Cells[9].Text = dt.Day + "-" + dt.Month + "-" + dt.Year;
+
+            if (e.Row.Cells[8].Text == "")
+            {
+                DateTime dt2 = DateTime.Parse(e.Row.Cells[8].Text);
+                e.Row.Cells[8].Text = dt.Day + "-" + dt.Month + "-" + dt.Year;
+            }
+
+            if (e.Row.Cells[8].Text != "")
+            {
+                e.Row.Cells[8].Text = "N/A";
+            }
         }
     }
 }

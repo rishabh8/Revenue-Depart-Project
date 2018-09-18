@@ -40,7 +40,7 @@ public partial class Message : System.Web.UI.Page
             Session["qno"] = row.Cells[1].Text;
             Session["Ass"] = row.Cells[2].Text;
             Session["sess"] = row.Cells[3].Text;
-            string theHiddenField = (row.Cells[13].Text);
+            HiddenField theHiddenField = row.FindControl("sender1") as HiddenField;
             if (theHiddenField != null)
             {
                 Application["Sender"] = theHiddenField;
@@ -103,6 +103,19 @@ public partial class Message : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Cells[0].Text = (++ind2).ToString();
+            DateTime dt = DateTime.Parse(e.Row.Cells[7].Text);
+            e.Row.Cells[7].Text = dt.Day + "-" + dt.Month + "-" + dt.Year;
+
+            if (e.Row.Cells[6].Text == "")
+            {
+                DateTime dt2 = DateTime.Parse(e.Row.Cells[6].Text);
+                e.Row.Cells[6].Text = dt.Day + "-" + dt.Month + "-" + dt.Year;
+            }
+
+            if (e.Row.Cells[6].Text != "")
+            {
+                e.Row.Cells[6].Text = "N/A";
+            }
         }
     }
     protected void GridView3_RowDataBound(object sender, GridViewRowEventArgs e)

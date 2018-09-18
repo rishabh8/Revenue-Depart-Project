@@ -119,7 +119,7 @@ public partial class Questions : System.Web.UI.Page
 
             int iFileSize = FileUpload1.PostedFile.ContentLength;
 
-            if (iFileSize > 5242880)
+            if (iFileSize > 10485760)
             {
                 lblMessage.Text = "File size is more than 5 MB";
                 lblMessage.CssClass = "alert alert-danger";
@@ -409,7 +409,7 @@ public partial class Questions : System.Web.UI.Page
 
             int iFileSize = FileUpload2.PostedFile.ContentLength;
 
-            if (iFileSize > 5242880)
+            if (iFileSize > 10485760)
             {
                 lblMessage.Text = "File size is more than 5 MB";
                 lblMessage.CssClass = "alert alert-danger";

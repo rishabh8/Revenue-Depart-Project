@@ -23,8 +23,8 @@
                     <div class="col-lg-12">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <asp:Label ID="Label1" runat="server" Text="विधान सभा सदन"></asp:Label>
-                                <asp:DropDownList ID="sadhan" runat="server" CssClass="form-control" Style="font-family: 'Kalam', cursive;">
+                                <asp:Label ID="Label1" runat="server" Text="विधान सभा सदन" CssClass="panel-title" Font-Bold="true"></asp:Label>
+                                <asp:DropDownList ID="sadhan" runat="server" CssClass="form-control">
                                     <asp:ListItem Text="सदन" Value="0"></asp:ListItem>
                                     <asp:ListItem Text="14" Value="14"></asp:ListItem>
                                 </asp:DropDownList>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <asp:Label ID="Label2" runat="server" Text="विधान सभा सत्र" CssClass="panel-title"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text="विधान सभा सत्र" CssClass="panel-title" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="sessions" runat="server" CssClass="form-control">
                                     <asp:ListItem Text="सत्र" Value="0"></asp:ListItem>
                                     <asp:ListItem Text="6" Value="6"></asp:ListItem>
@@ -41,10 +41,41 @@
                                 </asp:DropDownList>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            var specialKeys = new Array();
+                            specialKeys.push(8); //Backspace
+                            specialKeys.push(9); //Tab
+                            specialKeys.push(32); //space
+                            specialKeys.push(46); //Delete
+                            specialKeys.push(36); //Home
+                            specialKeys.push(35); //End
+                            specialKeys.push(37); //Left
+                            specialKeys.push(39); //Right
+                            function IsAlphaNumeric(e) {
+                                var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+                                var ret = ((keyCode >= 48 && keyCode <= 57) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+                                document.getElementById("error").style.display = ret ? "none" : "inline";
+                                return ret;
+                            }
+
+                            function checkPassword(e) {
+                                var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+                                var ret = ((keyCode == 46) || (keyCode == 13) || (keyCode >= 48 && keyCode <= 57) || (keyCode >= 64 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (keyCode == 32) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+                                document.getElementById("error").style.display = ret ? "none" : "inline";
+                                return ret;
+                            }
+                            function convertToUnicode(s) {
+                                var se = document.getElementById("text1").nodeValue;
+                                alert(se);
+
+                            }
+
+                            </script>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <asp:Label ID="Label3" runat="server" Text="प्रश्‍न संख्या" CssClass="panel-title"></asp:Label>
-                                <asp:TextBox ID="quesnos" runat="server" placeholder="प्रश्‍न संख्या" CssClass="form-control"></asp:TextBox>
+                                <asp:Label ID="Label3" runat="server" Text="प्रश्‍न संख्या" CssClass="panel-title" Font-Bold="true"></asp:Label>
+                                <asp:TextBox ID="quesnos" runat="server" placeholder="प्रश्‍न संख्या" CssClass="form-control" onkeypress="return IsAlphaNumeric(event);" ondrop="return false;" onpaste="return false;"></asp:TextBox>
+                                <span id="error" style="color: Red; display: none">* Characters are not allowed</span>
                             </div>
                         </div>
 
@@ -52,7 +83,7 @@
                     <div class="col-lg-12">
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <asp:Label ID="Label4" runat="server" Text="सूचीबद्ध होने की तिथि " CssClass="panel-title"></asp:Label>
+                                <asp:Label ID="Label4" runat="server" Text="सूचीबद्ध होने की तिथि " CssClass="panel-title" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="listed" runat="server" CssClass="form-control" onchange="listedData();">
                                     <asp:ListItem Text="चयन करें" Value="0"></asp:ListItem>
                                     <asp:ListItem Text="सूचीबद्ध" Value="सूचीबद्ध"></asp:ListItem>
@@ -62,7 +93,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <asp:Label ID="Label5" runat="server" Text="प्रश्‍न का प्रकार" CssClass="panel-title"></asp:Label>
+                                <asp:Label ID="Label5" runat="server" Text="प्रश्‍न का प्रकार" CssClass="panel-title" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="quesType" runat="server" CssClass="form-control">
                                     <asp:ListItem Text="चयन करें" Value="चयन करें"></asp:ListItem>
                                     <asp:ListItem Text="तारांकित" Value="तारांकित"></asp:ListItem>
@@ -76,14 +107,14 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <asp:Label ID="Label6" runat="server" Text="सदस्य का नाम" CssClass="panel-title"></asp:Label>
+                                <asp:Label ID="Label6" runat="server" Text="सदस्य का नाम" CssClass="panel-title" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="membernamess" runat="server" CssClass="form-control">
                                 </asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <asp:Label ID="Label7" runat="server" Text="सम्बधित विभाग " CssClass="panel-title"></asp:Label>
+                                <asp:Label ID="Label7" runat="server" Text="सम्बधित विभाग " CssClass="panel-title" Font-Bold="true"></asp:Label>
                                 <asp:TextBox ID="relatatedvibhag" runat="server" CssClass="form-control" Style="font-family: 'DevLys 010'; font-size: 20px;" onblur="this.value=convert_to_unicode(this.value);"></asp:TextBox>
                             </div>
                         </div>

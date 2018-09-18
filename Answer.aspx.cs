@@ -374,7 +374,7 @@ public partial class Answer : System.Web.UI.Page
 
             int iFileSize = files.ContentLength;
 
-            if (iFileSize > 1000000)
+            if (iFileSize > 10485760)
             {
                 lblMessage.Text = "File size is more than 1 MB";
                 lblMessage.CssClass = "alert alert-danger";
@@ -558,7 +558,7 @@ public partial class Answer : System.Web.UI.Page
 
             int iFileSize = files.ContentLength;
 
-            if (iFileSize > 1000000)
+            if (iFileSize > 10485760)
             {
                 lblFormat.Text = "File size is more than 1 MB";
                 lblFormat.CssClass = "alert alert-danger";

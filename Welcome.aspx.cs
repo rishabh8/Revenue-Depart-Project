@@ -10,11 +10,13 @@ public partial class Welcome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Session.Abandon();
+                
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlDataReader read = DataConnection.selectQuery("select * from member where member_email='" + username.Text.Trim() + "' and password='" + password.Text.Trim() + "'");
+        try
+        {
+            SqlDataReader read = DataConnection.selectQuery("select * from member where member_email='" + username.Text.Trim() + "' and password='" + password.Text.Trim() + "'");
         
         if (read.HasRows)
         {
@@ -28,6 +30,12 @@ public partial class Welcome : System.Web.UI.Page
                 Response.Redirect("Dashboard.aspx");
             }
         }
+        }
+        catch (Exception ex)
+        {
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+        }
+        
         
     }
 }

@@ -26,9 +26,12 @@
                         </div>
                     </div>
                     <div class="col-lg-12">
+                        <p style="color : red; text-align : center;font-size : 25px;font-weight:bold;"> Developed By:- </p> 
+                    </div>
+                    <div class="col-lg-12">
                         <p style="text-align:center">
-                            <label style="color:blue">Rishabh Parashar</label> Web Developer.
-                            <label style="color:blue">Chetan Samariya</label> Web Developer.
+                            <label style="color:blue;font-size:20px;">Rishabh Parashar</label> <strong> (Web Developer).</strong> 
+                            <br /><label> Contact No. - 9530407639</label>
                         </p>
                     </div>
                 </div>

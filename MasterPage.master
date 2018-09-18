@@ -168,9 +168,11 @@
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i>Profile</a>
                         </li>
+                        <% if(Session["UR"].ToString() == "F" || Session["UR"].ToString() == "U") { %>
                         <li>
                             <a href="Message.aspx"><i class="fa fa-fw fa-envelope"></i>Inbox</a>
                         </li>
+                        <% } %>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i>Settings</a>
                         </li>
@@ -203,7 +205,7 @@
                         <% if (Session["UR"].ToString() == "A" || Session["UR"].ToString() == "Q")
                            { %>
                         <li>
-                            <a href="Questions.aspx" style="color: white"><i class="fa fa-fw fa-user"></i>प्रश्न दर्ज करें</a>
+                            <a href="Questions.aspx" style="color: white"><i class="fa fa-fw fa-question-circle"></i>प्रश्न दर्ज करें</a>
                         </li>
                         <% } %>
                         <% if (Session["UR"].ToString() == "A" || Session["UR"].ToString() == "F")
@@ -252,6 +254,12 @@
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
-
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.css" />
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+    
 </body>
 </html>

@@ -78,7 +78,7 @@ public partial class SendTos : System.Web.UI.Page
         reader = DataConnection.selectQuery("select location,memeberid from member where Department='dist'");
         if (reader.HasRows)
         {
-            CheckBoxList3.Items.Add("सभी चुने");
+            
             while (reader.Read())
             {
                 ListItem item = new ListItem();
@@ -92,7 +92,7 @@ public partial class SendTos : System.Web.UI.Page
         reader = DataConnection.selectQuery("select location,memeberid from member where Department='DC'");
         if (reader.HasRows)
         {
-            CheckBoxList4.Items.Add("सभी चुने");
+            
             while (reader.Read())
             {
                 ListItem item = new ListItem();
@@ -106,7 +106,7 @@ public partial class SendTos : System.Web.UI.Page
         reader = DataConnection.selectQuery("select location,memeberid from member where Department='RAA'");
         if (reader.HasRows)
         {
-            CheckBoxList5.Items.Add("सभी चुने");
+            
             while (reader.Read())
             {
                 ListItem item = new ListItem();
@@ -120,7 +120,7 @@ public partial class SendTos : System.Web.UI.Page
         reader = DataConnection.selectQuery("select location,memeberid from member where Department='SO'");
         if (reader.HasRows)
         {
-            CheckBoxList6.Items.Add("सभी चुने");
+            
             while (reader.Read())
             {
                 ListItem item = new ListItem();
@@ -219,7 +219,7 @@ public partial class SendTos : System.Web.UI.Page
                 {
                     if (CheckBoxList2.Items[i].Selected)
                     {
-                        SqlDataReader r1 = DataConnection.selectQuery("select memeberid from member where member_name=N'" + CheckBoxList2.Items[i].Text + "'");
+                        SqlDataReader r1 = DataConnection.selectQuery("select memeberid from member where member_name=N'" + CheckBoxList2.Items[i].Text.Trim() + "'");
                         if (r1.HasRows)
                         {
                             while (r1.Read())
@@ -240,7 +240,7 @@ public partial class SendTos : System.Web.UI.Page
                 {
                     if (CheckBoxList3.Items[i].Selected)
                     {
-                        SqlDataReader r = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList3.Items[i].Text + "'");
+                        SqlDataReader r = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList3.Items[i].Text.Trim() + "'");
                         if (r.HasRows)
                         {
                             while (r.Read())
@@ -262,7 +262,7 @@ public partial class SendTos : System.Web.UI.Page
                 {
                     if (CheckBoxList4.Items[i].Selected)
                     {
-                        SqlDataReader re = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList4.Items[i].Text + "'");
+                        SqlDataReader re = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList4.Items[i].Text.Trim() + "'");
                         if (re.HasRows)
                         {
                             while (re.Read())
@@ -282,7 +282,7 @@ public partial class SendTos : System.Web.UI.Page
                 {
                     if (CheckBoxList5.Items[i].Selected)
                     {
-                        SqlDataReader re2 = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList5.Items[i].Text + "'");
+                        SqlDataReader re2 = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList5.Items[i].Text.Trim() + "'");
                         if (re2.HasRows)
                         {
                             while (re2.Read())
@@ -303,7 +303,7 @@ public partial class SendTos : System.Web.UI.Page
                 {
                     if (CheckBoxList6.Items[i].Selected)
                     {
-                        SqlDataReader re3 = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList6.Items[i].Text + "'");
+                        SqlDataReader re3 = DataConnection.selectQuery("select memeberid from member where location=N'" + CheckBoxList6.Items[i].Text.Trim() + "'");
                         if (re3.HasRows)
                         {
                             while (re3.Read())

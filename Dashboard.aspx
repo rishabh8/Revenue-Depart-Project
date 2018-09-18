@@ -452,13 +452,13 @@
                                             <asp:BoundField DataField="ques_no" HeaderText="प्रश्‍न संख्या" SortExpression="ques_no" />
                                             <asp:BoundField DataField="sadan" HeaderText="विधान सभा सदन" SortExpression="sadan" />
                                             <asp:BoundField DataField="session" HeaderText="विधान सभा सत्र" SortExpression="session" />
-                                            <asp:BoundField DataField="revenueQuesNo" HeaderText="R. Ques NO." SortExpression="revenueQuesNo" />
-                                            <asp:BoundField DataField="relatedVibag" HeaderText="Vibhag" SortExpression="relatedVibag" />
+                                            <asp:BoundField DataField="revenueQuesNo" HeaderText="राजस्व विभाग पत्र क्रमांक" SortExpression="revenueQuesNo" />
+                                            <asp:BoundField DataField="relatedVibag" HeaderText="सम्बधित विभाग" SortExpression="relatedVibag" />
                                             <asp:BoundField DataField="quesType" HeaderText="प्रश्‍न प्रकार" SortExpression="quesType" />
                                             <asp:BoundField DataField="listed" HeaderText="सूचीबद्ध / असूचीबद्ध" SortExpression="listed" />
-                                            <asp:BoundField DataField="listeddate" HeaderText="listeddate" SortExpression="listeddate" />
-                                            <asp:BoundField DataField="branchdate" HeaderText="branchdate" SortExpression="branchdate" />
-                                            <asp:BoundField DataField="membernames" HeaderText="membernames" SortExpression="membernames" />
+                                            <asp:BoundField DataField="listeddate" HeaderText="सूचीबद्ध होने की तिथि" SortExpression="listeddate" />
+                                            <asp:BoundField DataField="branchdate" HeaderText="प्रश्‍न प्राप्ति दिनांक" SortExpression="branchdate" />
+                                            <asp:BoundField DataField="membernames" HeaderText="सदस्य का नाम" SortExpression="membernames" />
                                             <asp:TemplateField HeaderText="Action">
                                                 <ItemTemplate>
                                                     <asp:Button ID="btn1" Text="Send TO" runat="server" CssClass="btn btn-info" CommandArgument="<%#((GridViewRow) Container).RowIndex %>" CommandName="SendButton" />
